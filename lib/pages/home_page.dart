@@ -1,3 +1,4 @@
+import 'package:bitecope/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,13 +8,14 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final availableSize = getSize(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.all(screenSize.width * 10 / 100),
+        padding: EdgeInsets.all(availableSize.width * 10 / 100),
         child: SizedBox(
-          height: screenSize.height,
+          height: availableSize.height,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Row(
