@@ -11,18 +11,23 @@ class BitecopeApp extends StatelessWidget {
       scrollController: ScrollController(),
       appBar: BitecopeAppBar(
         title: const Logo(),
-        actions: Row(
-          children: const [
-            NavigationItem(
-              'Home',
-              page: _Page.home,
-            ),
-            NavigationItem(
-              'About Us',
-              page: _Page.aboutUs,
-            ),
-          ],
-        ),
+        actions: isMobile(context)
+            ? InkWell(
+                child: const Icon(Icons.dehaze_rounded),
+                onTap: () => debugPrint('Drawer is not implemented!'),
+              )
+            : Row(
+                children: const [
+                  NavigationItem(
+                    'Home',
+                    page: _Page.home,
+                  ),
+                  NavigationItem(
+                    'About Us',
+                    page: _Page.aboutUs,
+                  ),
+                ],
+              ),
       ),
       pages: {
         _Page.home: (context) => const Home(),

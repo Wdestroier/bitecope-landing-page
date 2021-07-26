@@ -32,7 +32,7 @@ class SpaNavigator extends InheritedWidget {
     pageHeight ??= getSize(context!).height;
 
     scrollController.animateTo(
-      page * pageHeight - 30,
+      page * pageHeight + 15.0,
       duration: const Duration(milliseconds: 700),
       curve: Curves.linearToEaseOut,
     );
@@ -56,24 +56,19 @@ class _SpaNavigator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageSize = getSize(context);
-
     return Scaffold(
       body: RawScrollbar(
         controller: scrollController,
         isAlwaysShown: true,
         child: Stack(
           children: [
-            ListView(
-              controller: scrollController,
-              children: pages.values
-                  .map((pageBuilder) => SizedBox(
-                        width: pageSize.width,
-                        height: pageSize.height,
-                        child: pageBuilder(context),
-                      ))
-                  .toList(),
-              scrollDirection: Axis.vertical,
+            Expanded(
+              child: ListView(
+                controller: scrollController,
+                children:
+                    pages.values.map((builder) => builder(context)).toList(),
+                scrollDirection: Axis.vertical,
+              ),
             ),
             appBar,
           ],

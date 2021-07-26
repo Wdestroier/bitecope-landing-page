@@ -17,6 +17,7 @@ class BitecopeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final margin = getSize(context).width * 10 / 100;
 
+    // https://stackoverflow.com/questions/51333105/flutter-add-box-shadow-to-a-transparent-container/55833281#55833281
     /*ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
