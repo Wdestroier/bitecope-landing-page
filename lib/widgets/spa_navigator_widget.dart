@@ -62,13 +62,11 @@ class _SpaNavigator extends StatelessWidget {
         isAlwaysShown: true,
         child: Stack(
           children: [
-            Expanded(
-              child: ListView(
-                controller: scrollController,
-                children:
-                    pages.values.map((builder) => builder(context)).toList(),
-                scrollDirection: Axis.vertical,
-              ),
+            ListView(
+              controller: scrollController,
+              children:
+                  pages.values.map((builder) => builder(context)).toList(),
+              scrollDirection: Axis.vertical,
             ),
             appBar,
           ],
