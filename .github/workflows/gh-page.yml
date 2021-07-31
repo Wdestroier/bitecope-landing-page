@@ -17,7 +17,7 @@ jobs:
       webRenderer: auto
       workingDir: .
       targetBranch: gh-pages
-      customArgs:
+      baseHref: /bitecope-clone/
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -30,7 +30,7 @@ jobs:
       - run: flutter pub get
         shell: bash
         working-directory: ${{env.workingDir}}
-      - run: flutter build web --release --web-renderer=${{env.webRenderer}} ${{env.customArgs}}
+      - run: flutter build web --release --web-renderer=${{env.webRenderer}} --base-href=${{env.baseHref}}
         shell: bash
         working-directory: ${{env.workingDir}}
 
