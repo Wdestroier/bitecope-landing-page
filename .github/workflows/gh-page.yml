@@ -33,9 +33,11 @@ jobs:
       - run: flutter build web --release --web-renderer=${{env.webRenderer}} ${{env.customArgs}}
         shell: bash
         working-directory: ${{env.workingDir}}
-      - run: cp ${{env.workingDir}}/assets/* ${{env.workingDir}}/build/web/assets/
+
+      - run: cp -r assets/* build/web/assets/
         shell: bash
         working-directory: ${{env.workingDir}}
+
       - run: git config user.name github-actions
         shell: bash
         working-directory: ${{env.workingDir}}
